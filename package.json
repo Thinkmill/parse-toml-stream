@@ -1,6 +1,6 @@
 {
   "name": "toml-stream",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Parse TOML files in streams chunked by [sections]",
   "main": "index.js",
   "repository": "thejameskyle/toml-stream",
