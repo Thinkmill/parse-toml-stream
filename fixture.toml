@@ -1,0 +1,16 @@
+foo = "bar"
+
+[baz]
+boz = "boy"
+
+[bat]
+bam = "boo"
+
+  [bit]
+  baw = "bet"
+
+[[biz]]
+bop = "blu"
+
+[[biz]]
+bag = "bom"

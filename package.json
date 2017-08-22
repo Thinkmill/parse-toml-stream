@@ -1,0 +1,22 @@
+{
+  "name": "toml-stream",
+  "version": "0.0.0",
+  "description": "Parse TOML files in streams chunked by [sections]",
+  "main": "index.js",
+  "repository": "thejameskyle/toml-stream",
+  "author": "James Kyle <me@thejameskyle.com>",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "toml": "^2.3.2"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.53.1",
+    "jest": "^20.0.4"
+  }
+}
