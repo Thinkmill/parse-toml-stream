@@ -16,15 +16,18 @@ bam = "boo"
 ```js
 const createReadableTomlStream = require('toml-stream');
 const path = require('path');
+const fs = require('fs');
 
-let stream = createReadableTomlStream(path.join(__dirname, 'data.toml'));
+let fileStream = fs.createReadStream(path.join(__dirname, 'data.toml'));
+let tomlStream = createReadableTomlStream(fileStream);
+
 let chunks = [];
 
-stream.on('data', chunk => {
+tomlStream.on('data', chunk => {
   chunks.push(chunk);
 });
 
-stream.on('end', () => {
+tomlStream.on('end', () => {
   console.log(chunks);
 });
 // chunks == [

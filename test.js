@@ -2,6 +2,7 @@
 'use strict';
 
 const createReadableTomlStream = require('./');
+const fs = require('fs');
 const path = require('path');
 
 const fixture = path.join(__dirname, 'fixture.toml');
@@ -22,8 +23,9 @@ function toPromise(stream) {
 }
 
 test('reads in sections', () => {
-  let stream = createReadableTomlStream(fixture);
-  return toPromise(stream).then(chunks => {
+  let fileStream = fs.createReadStream(fixture);
+  let tomlStream = createReadableTomlStream(fileStream);
+  return toPromise(tomlStream).then(chunks => {
     expect(chunks).toEqual([
       { foo: 'bar' },
       { baz: { boz: 'boy' } },

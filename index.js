@@ -6,9 +6,8 @@ const stream = require('stream');
 const readline = require('readline');
 const toml = require('toml');
 
-module.exports = function createReadableTomlStream(filePath /*: string */) /*: stream$Readable */ {
-  let tomlStream /*: any */ = new stream.Readable({ objectMode: true });
-  let fileStream /*: any */ = fs.createReadStream(filePath);
+module.exports = function createReadableTomlStream(fileStream /*: stream$Readable */) {
+  let tomlStream = new stream.Readable({ objectMode: true });
   let lineReader = readline.createInterface({
     input: fileStream,
   });
@@ -36,9 +35,9 @@ module.exports = function createReadableTomlStream(filePath /*: string */) /*: s
   lineReader.on('line', line => process(line));
   lineReader.on('close', () => process(null));
 
-  tomlStream._read = () => {};
-  tomlStream._destroy = () => {
-    fileStream.destroy();
+  (tomlStream /*: any */)._read = () => {};
+  (tomlStream /*: any */)._destroy = () => {
+    (fileStream /*: any */).destroy();
   };
 
   return tomlStream;
