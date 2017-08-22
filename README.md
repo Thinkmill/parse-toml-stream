@@ -1,4 +1,4 @@
-# toml-stream
+# parse-toml-stream
 
 > Parse TOML files in streams chunked by `[sections]`
 
